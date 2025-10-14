@@ -35,6 +35,17 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
+  const pageUrls = {
+    'Adopt a Pet': '/adopt-a-pet',
+    'Place a Pet': '/place-a-pet',
+    'Donations': '/donations',
+  };
+
+  const handleNavMenuClick = (page) => {
+    handleCloseNavMenu();
+    window.location.href = pageUrls[page] || '/';
+  };
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -44,7 +55,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -86,7 +97,7 @@ function Navbar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleNavMenuClick(page)}>
                   <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                 </MenuItem>
               ))}
@@ -97,7 +108,7 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -115,7 +126,7 @@ function Navbar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleNavMenuClick(page)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
