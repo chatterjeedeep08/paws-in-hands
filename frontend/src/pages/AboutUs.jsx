@@ -1,11 +1,12 @@
 import Navbar from "../components/Navbar";
 
-function Dashboard() {
+function AboutUs() {
 	return (
 		<>
 			<Navbar />
+			<h1>About Us</h1>
 		</>
 	);
 }
 
-export default Dashboard;
+export default AboutUs;
